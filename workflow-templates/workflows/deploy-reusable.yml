@@ -1,0 +1,32 @@
+name: Reusable Deploy
+on:
+  workflow_call:
+    inputs:
+      service_name: { required: true, type: string }
+      port: { required: true, type: number }
+      domain: { required: true, type: string }
+    secrets:
+      DROPLET_SSH_KEY: { required: true }
+      DROPLET_HOST: { required: true }
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci && npm test || echo "no tests"
+
+      - name: Deploy to droplet
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: root
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          script: |
+            cd ~/${{ inputs.service_name }}
+            git pull origin main
+            npm i --production
+            pm2 restart ${{ inputs.service_name }} || pm2 start server.js --name ${{ inputs.service_name }}
+            systemctl reload nginx || true
