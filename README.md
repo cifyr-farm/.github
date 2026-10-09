@@ -1,4 +1,4 @@
-<img width="2048" height="1152" alt="bannerimage" src="https://github.com/user-attachments/assets/b6fbf806-c79d-4512-815b-520584161d7d" />
+<img width="1280" height="720" alt="bannerimage" src="https://github.com/user-attachments/assets/b6fbf806-c79d-4512-815b-520584161d7d" />
 
 # CIFYR // Quantum Intelligence
 
