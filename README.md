@@ -6,7 +6,7 @@
 > Auth. Verify. Scale.
 
 [![Live](https://img.shields.io/badge/Live-crow.cifyr.com-white)](https://crow.cifyr.com)
-[![Auth](https://img.shields.io/badge/Auth-auth.cifyr.com-black)](https://auth.cifyr.com)
+[![Search](https://img.shields.io/badge/Auth-auth.cifyr.com-black)](https://cifyr.com)
 [![Stack](https://img.shields.io/badge/Stack-Crow%20%2B%20Postgres%20%2B%20RS256-blue)]()
 [![License](https://img.shields.io/badge/License-MIT-171717)]()
 
